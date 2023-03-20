@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  AWS Serverless Application Model (AWS SAM) template
+
+  Sample SAM Template for bytewise-week1
+
+Resources: 
+    week1-HttpApi:
+      Type: AWS::Serverless::HttpApi
+      Properties:
+        StageName: default
+        CorsConfiguration:
+          AllowOrigins: "*"
+          AllowMethods: "*"
+          AllowHeaders: "*"
+
+    week1-function:
+      Type: AWS::Serverless::Function
+      Properties:
+        Handler: bytewise.handler
+        Runtime: python3.8
+        CodeUri: resources/byte_wise
+        Events:
+          week1-event:
+            Type: HttpApi
+            Properties:
+              Path: /bytewise/{id}  # This is the path parameter
+              Method: GET      # This is the HTTP method
+              ApiId: !Ref week1-HttpApi
+    

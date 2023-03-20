@@ -25,7 +25,7 @@ Resources:
           week1-event:
             Type: HttpApi
             Properties:
-              Path: /bytewise/1  # This is the path parameter
+              Path: /bytewise/a1  # This is the path parameter
               Method: GET      # This is the HTTP method
               ApiId: !Ref week1-HttpApi
     

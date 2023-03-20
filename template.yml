@@ -11,9 +11,9 @@ Resources:
       Properties:
         StageName: default
         CorsConfiguration:
-          AllowOrigins: "*"
-          AllowMethods: "*"
-          AllowHeaders: "*"
+          AllowOrigins: "'*'"
+          AllowMethods: "'*'"
+          AllowHeaders: "'*'"
 
     week1-function:
       Type: AWS::Serverless::Function
